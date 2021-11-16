@@ -1,0 +1,34 @@
+<!-- local, va a buscar una respuesta xms --> 
+<!-- local:true, va a buscar una respuesta html  --> 
+<!-- local:false, va a buscar una respuesta js  --> 
+<!-- sino se coloca nada, el formulario va a venir con un remote:true, es lo mismo que el local:false  --> 
+
+<%= form_with(model: @blog, remote: true) do |f| %>
+    <% if @blog.errors.any? %>
+        <div id = 'error_explanation'>
+            <h2>Este Post no se pudo crear por las siguientes razones</h2>
+            <ul>
+                <% @blog.errors.full_messages.each do |msg|%>
+                    <li><%= msg %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+
+    <h3>Ingrese su Post</h3>
+    
+    <div class="form-group">
+        <%= f.label :Titulo %>
+        <%= f.text_field :title, autofocus: true, placeholder: 'Escriba el titulo de su Post', class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+        <%= f.label :Descripcion %>
+        <%= f.text_area :description, placeholder: 'Escriba el contenido de su Post', class: "form-control" %>
+    </div>
+
+    <div class = 'actions'>
+        <%= f.submit "Guardar Post", class:'btn btn-success border-dark mb-2'%>
+    </div>
+
+<% end %>

@@ -1,0 +1,8 @@
+<tr id="blog-<%= b.id%>">
+    <th><%= b.id %></th>
+    <th><span><%= b.title %></span></th>
+    <th><span><%= b.description %></span></th>
+    <th><%= link_to 'Revisar', b, remote: true, class: 'btn btn-primary' %></th>
+    <th><%= link_to 'Editar', edit_blog_path(b), remote: true, class: 'btn btn-warning' %></th>
+    <th><%= link_to 'Eliminar', b, remote: true, method: :delete, data: {confirm: 'Seguro que requieres eliminar el post?'}, class: 'btn btn-danger'%></th>
+</tr>

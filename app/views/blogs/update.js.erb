@@ -1,0 +1,2 @@
+$('#my_form').empty();
+$('#blog-<%= @blog.id %>').replaceWith('<%= j render(@blog, b: @blog) %>')

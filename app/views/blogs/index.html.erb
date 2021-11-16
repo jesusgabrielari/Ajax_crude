@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<h1 class="text-center">El Blog de Diego</h1>
+
+<!-- Barra busqueda-->
+
+<div id="search">
+    <%= render 'search' %>
+</div>
+
+<br>
+
+<!-- Creando un div para cargar el formulario, el cual será llamado desde el JS-->
+
+<div id="my_form"></div>
+
+<!-- Creando un div para mostar el listado de los posts, el cual será llamado desde el JS-->
+
+<div id="list-show"></div>
+
+<!-- Llamando a la vista parcial para traer el boton que crea el formaluraio-->
+
+<!-- Con esta opcion se solicita una respuesta HTMl-->
+<!-- <%= link_to 'Crear nuevo post', new_blog_path %> -->
+<!-- Con esta opcion se solicita una respuesta JS-->
+<div id="btn-crear" class="mb-4">
+    <%= render 'button' %>
+</div>
+
+<h3>Listado de Posts</h3>
+
+<table class="table table-striped">
+    <thead id="tabla">
+        <tr>
+            <th>ID</th>
+            <th>Titulo</th>
+            <th>Descripcion</th>
+            <th colspan="2"></th>
+        </tr>
+    </thead>
+    <tbody id="blogs">
+        <% @blogs.each do |b| %>
+        <!-- b: b quiere qecir que el b del each es el mismo que aparece en la vista parcial llamada "blogs"-->
+        <%= render 'blogs', b: b %>
+        <% end %>
+    </tbody>
+</table>
